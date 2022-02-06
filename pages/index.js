@@ -1,50 +1,59 @@
 import TableHeader from "./components/TableHeader";
 import styles from "../styles/Countries.module.scss";
+import Head from "next/head";
 
 export default function App(props) {
 	return (
-		<table className={styles.table}>
-			<TableHeader titles={["Country", "Capital", "Population", "Currency"]} />
+		<div>
+			<Head>
+				<title>Countries</title>
+			</Head>
 
-			<tbody>
-				{props.countries.map((country, i) => {
-					return (
-						<tr key={i}>
-							<td>
-								<div>
-									{(country.flag ? country.flag + " " : "") + country.name}
-								</div>
-							</td>
-							<td>
-								{country.capital
-									? country.capital.map((capital, i) => {
-											return <div key={i}>{capital}</div>;
-									  })
-									: null}
-							</td>
+			<table className={styles.table}>
+				<TableHeader
+					titles={["Country", "Capital", "Population", "Currency"]}
+				/>
 
-							<td>{country.population.toLocaleString("de-CH")}</td>
-							{country.currencies ? (
+				<tbody>
+					{props.countries.map((country, i) => {
+						return (
+							<tr key={i}>
 								<td>
-									{Object.keys(country.currencies).map((key, i) => {
-										return (
-											<div key={i} className={styles.currencyContainer}>
-												{country.currencies[key].name}
-												{country.currencies[key].symbol
-													? " (" + country.currencies[key].symbol + ")"
-													: null}
-											</div>
-										);
-									})}
+									<div>
+										{(country.flag ? country.flag + " " : "") + country.name}
+									</div>
 								</td>
-							) : (
-								<td />
-							)}
-						</tr>
-					);
-				})}
-			</tbody>
-		</table>
+								<td>
+									{country.capital
+										? country.capital.map((capital, i) => {
+												return <div key={i}>{capital}</div>;
+										  })
+										: null}
+								</td>
+
+								<td>{country.population.toLocaleString("de-CH")}</td>
+								{country.currencies ? (
+									<td>
+										{Object.keys(country.currencies).map((key, i) => {
+											return (
+												<div key={i} className={styles.currencyContainer}>
+													{country.currencies[key].name}
+													{country.currencies[key].symbol
+														? " (" + country.currencies[key].symbol + ")"
+														: null}
+												</div>
+											);
+										})}
+									</td>
+								) : (
+									<td />
+								)}
+							</tr>
+						);
+					})}
+				</tbody>
+			</table>
+		</div>
 	);
 }
 
