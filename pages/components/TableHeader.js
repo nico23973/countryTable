@@ -1,7 +1,7 @@
 import styles from "../../styles/TableHeader.module.scss";
 import Th from "./Th";
 
-function TableHeader(props) {
+function TableHeader() {
 	return (
 		<thead className={styles.tableHeader}>
 			<tr>

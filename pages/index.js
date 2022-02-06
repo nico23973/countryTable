@@ -15,42 +15,38 @@ export default function App(props) {
 				/>
 
 				<tbody>
-					{props.countries.map((country, i) => {
-						return (
-							<tr key={i}>
-								<td>
-									<div>
-										{(country.flag ? country.flag + " " : "") + country.name}
-									</div>
-								</td>
-								<td>
-									{country.capital
-										? country.capital.map((capital, i) => {
-												return <div key={i}>{capital}</div>;
-										  })
-										: null}
-								</td>
+					{props.countries.map((country, i) => (
+						<tr key={i}>
+							<td>
+								<div>
+									{(country.flag ? country.flag + " " : "") + country.name}
+								</div>
+							</td>
+							<td>
+								{country.capital
+									? country.capital.map((capital, i) => (
+											<div key={i}>{capital}</div>
+									  ))
+									: null}
+							</td>
 
-								<td>{country.population.toLocaleString("de-CH")}</td>
-								{country.currencies ? (
-									<td>
-										{Object.keys(country.currencies).map((key, i) => {
-											return (
-												<div key={i} className={styles.currencyContainer}>
-													{country.currencies[key].name}
-													{country.currencies[key].symbol
-														? " (" + country.currencies[key].symbol + ")"
-														: null}
-												</div>
-											);
-										})}
-									</td>
-								) : (
-									<td />
-								)}
-							</tr>
-						);
-					})}
+							<td>{country.population.toLocaleString("de-CH")}</td>
+							{country.currencies ? (
+								<td>
+									{Object.keys(country.currencies).map((key, i) => (
+										<div key={i} className={styles.currencyContainer}>
+											{country.currencies[key].name}
+											{country.currencies[key].symbol
+												? ` (${country.currencies[key].symbol})`
+												: null}
+										</div>
+									))}
+								</td>
+							) : (
+								<td />
+							)}
+						</tr>
+					))}
 				</tbody>
 			</table>
 		</div>
@@ -66,8 +62,8 @@ export async function getStaticProps() {
 
 		const data = await response.json();
 
-		const countries = await data.map((country, i) => {
-			return {
+		return data
+			.map((country) => ({
 				flag: country.flag ? country.flag : null,
 				name: country.name.common,
 				capital: country.capital ? country.capital : null,
@@ -82,13 +78,8 @@ export async function getStaticProps() {
 							};
 					  })
 					: null,
-			};
-		});
-
-		countries.sort(function (a, b) {
-			return b.population - a.population;
-		});
-		return countries;
+			}))
+			.sort((a, b) => b.population - a.population);
 	}
 
 	console.log("Static props data fetched");
