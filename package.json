@@ -1,5 +1,5 @@
 {
-  "name": "countytable",
+  "name": "CountryTable",
   "private": true,
   "scripts": {
     "dev": "next dev",
