@@ -11,7 +11,9 @@ export default function App(props) {
 			</Head>
 
 			<table className={styles.table}>
-				<TableHeader names={["Country", "Capital", "Population", "Currency"]} />
+				<TableHeader
+					names={["Country", "Capital", "Population", "Currencies"]}
+				/>
 
 				<tbody>
 					{props.countries.map((country, i) => (
