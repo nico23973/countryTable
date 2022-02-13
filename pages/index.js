@@ -1,6 +1,7 @@
-import TableHeader from "./components/TableHeader";
-import styles from "../styles/Countries.module.scss";
+import Tr from "../components/index/Tr";
+import TableHeader from "../components/index/TableHeader";
 import Head from "next/head";
+import styles from "./index.module.scss";
 
 export default function App(props) {
 	return (
@@ -10,42 +11,11 @@ export default function App(props) {
 			</Head>
 
 			<table className={styles.table}>
-				<TableHeader
-					titles={["Country", "Capital", "Population", "Currency"]}
-				/>
+				<TableHeader names={["Country", "Capital", "Population", "Currency"]} />
 
 				<tbody>
 					{props.countries.map((country, i) => (
-						<tr key={i}>
-							<td>
-								<div>
-									{(country.flag ? country.flag + " " : "") + country.name}
-								</div>
-							</td>
-							<td>
-								{country.capital
-									? country.capital.map((capital, i) => (
-											<div key={i}>{capital}</div>
-									  ))
-									: null}
-							</td>
-
-							<td>{country.population.toLocaleString("de-CH")}</td>
-							{country.currencies ? (
-								<td>
-									{Object.keys(country.currencies).map((key, i) => (
-										<div key={i} className={styles.currencyContainer}>
-											{country.currencies[key].name}
-											{country.currencies[key].symbol
-												? ` (${country.currencies[key].symbol})`
-												: null}
-										</div>
-									))}
-								</td>
-							) : (
-								<td />
-							)}
-						</tr>
+						<Tr country={country} key={i} />
 					))}
 				</tbody>
 			</table>
