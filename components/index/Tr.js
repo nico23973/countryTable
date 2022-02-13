@@ -3,7 +3,7 @@ export default function Tr(props) {
 		<tr>
 			<td>
 				<div>
-					{(props.country.flag ? props.country.flag + " " : "") +
+					{(props.country.flag ? props.country.flag + " " : null) +
 						props.country.name}
 				</div>
 			</td>
