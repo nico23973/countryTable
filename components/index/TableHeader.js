@@ -1,8 +1,7 @@
-import { useState } from "react";
 import styles from "./TableHeader.module.scss";
 import Th from "./Th";
 
-export let uiIsShown, setUiIsShown;
+export let uiIsShownData;
 
 function TableHeader(props) {
 	let data = [];
@@ -10,9 +9,7 @@ function TableHeader(props) {
 		data[name] = false;
 	});
 
-	[uiIsShown, setUiIsShown] = useState(data);
-
-	console.log(uiIsShown);
+	uiIsShownData = data;
 
 	return (
 		<thead className={styles.tableHeader}>
