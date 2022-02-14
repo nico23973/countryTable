@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useEffect } from "react";
 
 export default function Th(props) {
 	function toggleUiIsShown(state) {
@@ -21,21 +20,17 @@ export default function Th(props) {
 			<div style={{ position: "relative" }}>
 				{props.uiIsShown[props.name] ? (
 					<div>
-						<div style={{ position: "absolute", bottom: 4, left: "16px" }}>
-							<Image
-								src="/../public/arrUp.svg"
-								alt="Sort up"
-								height="6"
-								width="12"
-							/>
+						<div
+							style={{
+								position: "absolute",
+								left: "16px",
+								bottom: 8,
+							}}
+						>
+							<Image src="/arrUp.svg" alt="Sort up" height="6" width="12" />
 						</div>
-						<div style={{ position: "absolute", top: 4, left: "16px" }}>
-							<Image
-								src="/../public/arrDown.svg"
-								alt="Sort down"
-								height="6"
-								width="12"
-							/>
+						<div style={{ position: "absolute", left: "16px", top: 0 }}>
+							<Image src="/arrDown.svg" alt="Sort down" height="6" width="12" />
 						</div>
 					</div>
 				) : null}
@@ -45,14 +40,14 @@ export default function Th(props) {
 						paddingLeft: "6",
 						position: "absolute",
 						right: "16px",
-						bottom: "0",
+						bottom: 0,
 					}}
 				>
 					{props.uiIsShown[props.name] ? (
 						<Image
 							height="12"
 							width="12"
-							src="/../public/cross.svg"
+							src="/deleteColumn.svg"
 							alt="Delete Column"
 							onClick={() => {
 								console.log("click");

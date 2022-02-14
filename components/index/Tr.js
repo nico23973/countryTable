@@ -1,3 +1,5 @@
+import { getDisplayName } from "next/dist/shared/lib/utils";
+
 export default function Tr(props) {
 	let country = props.country;
 
