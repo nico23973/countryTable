@@ -1,9 +1,5 @@
 import styles from "./TableHeader.module.scss";
 import Th from "./Th";
-<<<<<<< HEAD
-
-function TableHeader(props) {
-=======
 import { useState } from "react";
 
 function TableHeader(props) {
@@ -13,7 +9,6 @@ function TableHeader(props) {
 	});
 	let [uiIsShown, setUiIsShown] = useState(data);
 
->>>>>>> customColumns
 	return (
 		<thead className={styles.tableHeader}>
 			<tr>

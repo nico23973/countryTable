@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-export default function Th(props) {
-	return <th>{props.name}</th>;
-=======
 import Image from "next/image";
 import { useEffect } from "react";
 
@@ -67,5 +63,4 @@ export default function Th(props) {
 			</div>
 		</th>
 	);
->>>>>>> customColumns
 }
