@@ -24,7 +24,7 @@ body {
 		background: white;
 		cursor: pointer;
 	}
-	font-size: 14px;
+	font-size: 12px;
 }
 
 a {
@@ -42,5 +42,11 @@ a {
 		position: absolute;
 		left: 50%;
 		transform: translate(-50%);
+	}
+}
+
+@media (min-width: 720px) {
+	body {
+		font-size: 14px;
 	}
 }

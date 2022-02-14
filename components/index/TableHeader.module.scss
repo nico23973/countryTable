@@ -1,8 +1,14 @@
 .tableHeader {
-	font-size: 18px;
+	font-size: 14px;
 	background-color: rgb(5 5 20);
 	font-weight: 500;
 	th {
 		padding: 20px 0;
+	}
+}
+
+@media (min-width: 720px) {
+	.tableHeader {
+		font-size: 18px;
 	}
 }
