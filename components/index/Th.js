@@ -6,10 +6,12 @@ export default function Th(props) {
 	const [rand, setRand] = useState(uiIsShownData);
 
 	function toggleUiIsShown(state) {
+		console.log(uiIsShown);
 		let newValue = uiIsShown;
-		newValue[props.name] = state;
-		setUiIsShown(newValue);
+		uiIsShown[props.name] = state;
+		setUiIsShown(uiIsShown);
 		setRand(Math.random());
+		console.log(uiIsShown);
 	}
 
 	return (
