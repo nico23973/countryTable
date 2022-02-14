@@ -1,21 +1,26 @@
 import styles from "./TableHeader.module.scss";
 import Th from "./Th";
-
-export let uiIsShownData;
+import { useState } from "react";
 
 function TableHeader(props) {
 	let data = {};
 	props.names.forEach((name) => {
 		data[name] = false;
 	});
-
-	uiIsShownData = data;
+	let [uiIsShown, setUiIsShown] = useState(data);
 
 	return (
 		<thead className={styles.tableHeader}>
 			<tr>
 				{props.names.map((name, i) => {
-					return <Th name={name} key={i} />;
+					return (
+						<Th
+							name={name}
+							key={i}
+							uiIsShown={uiIsShown}
+							setUiIsShown={setUiIsShown}
+						/>
+					);
 				})}
 			</tr>
 		</thead>
