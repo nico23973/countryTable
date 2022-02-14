@@ -13,7 +13,6 @@ html {
 }
 
 body {
-	padding: 1rem 2rem;
 	&::-webkit-scrollbar {
 		width: 1rem;
 	}
@@ -24,6 +23,8 @@ body {
 		background: white;
 		cursor: pointer;
 	}
+	padding: 8px 16px;
+
 	font-size: 11px;
 }
 
@@ -48,5 +49,6 @@ a {
 @media (min-width: 720px) {
 	body {
 		font-size: 14px;
+		padding: 1rem 2rem;
 	}
 }
