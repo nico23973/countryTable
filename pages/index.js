@@ -54,7 +54,7 @@ export async function getStaticProps() {
 			.sort((a, b) => b.population - a.population);
 	}
 
-	console.log("Static props data fetched");
+	
 
 	return {
 		props: {
